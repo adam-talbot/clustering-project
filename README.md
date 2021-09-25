@@ -1,39 +1,77 @@
 # Zillow Regression Project
 
+<!-- Add buttons here -->
+
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/badge/release-draft-yellow)
+![GitHub last commit](https://img.shields.io/badge/last%20commit-Sep%202021-green)
+
+---
+
+# Table of contents
+<!-- Add a table of contents for your project -->
+
+- [Project Title](#project-title)
+- [Executive Summary](#executive-summary)
+- [Table of contents](#table-of-contents)
+- [Data Dictionary](#data-dictionary)
+- [Data Science Pipeline](#data-science-pipline)
+    - [Acquire](#acquire)
+    - [Prepare](#prepare)
+    - [Explore](#explore)
+    - [Model](#model)
+    - [Evaluate](#evaluate)
+- [Conclusion](#conclusion)
+- [Given More Time](#given-more-time)
+- [Recreate This Project](#recreate-this-project)
+- [Footer](#footer)
+
+---
+
 <img src="https://1000logos.net/wp-content/uploads/2017/12/Zillow_logo_PNG2.png" alt="Zillow" title="Zillow Logo" width="400" height="200" />
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
+[(Back to top)](#table-of-contents)
 
 ### Project Summary
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
 
+### Executive Summary
+
+<hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
+
+> **Conclusions/Takaways:**
+> - Best predictors discovered were...
+> - Best-peforming model outperformed baseline and increased R^2 value by...
+
+> **Next Steps:**
+> - Improve model performance by...
+>> - ...
+
 #### Project Objectives
+> - Discover drivers of log error of Zestimate to determine how current model could potentially be improved
 > - Document code, process (data acquistion, preparation, exploratory data analysis and statistical testing, modeling, and model evaluation), findings, and key takeaways in a Jupyter Notebook report
 > - Create modules (acquire.py, prepare.py) that make my process repeateable
-> - Construct a model to predict tax assessed home values using regression techniques
-> - Deliver a 5-minute, audience-appropriate presentation consisting of a high-level walkthrough using slides
+> - Include all work in github repo with README to provide high level overview and instructions for replication
+> - Use clustering techniques as part of exploration process
+> - Construct a model to predict Zestimate log error using regression techniques
+> - Deliver a 4-minute, audience-appropriate presentation consisting of a high-level walkthrough of my notebook
 > - Answer panel questions about your code, process, findings and key takeaways, and model
 
 #### Business Goals
-> - Find drivers of tax assessed home values
-> - Construct a ML regression model that accurately predicts tax assessed home values
+> - Find drivers Zestimate log error
+> - Construct a ML regression model that accurately predicts Zestimate log error
 > - Document process well enough to be presented or read like a report
 
 #### Audience
 > - The Zillow Data Science team
 
-#### Project Deliverables
-> - A verbal report in the form of a presentation, supported by slides (5 minutes max)
-> - A Jupyter Notebook Report showing process and analysis with the goal of finding drivers for tax assessed home values
-> - A README.md file containing the project description with goals, initial hypotheses, a data dictionary, project planning, instructions or an explanation of how someone else can recreate your project and findings, answers to your hypotheses, key findings, recommendations, and takeaways from your project 
-> - Individual modules, .py files, that hold your functions to acquire and prepare your data
-
 #### Project Context
-> - The Zillow dataset I'm using came from the Codeup database.
+> - The Zillow dataset I'm using came from the Codeup database
 
 
 #### Data Dictionary
+[(Back to top)](#table-of-contents)
 
 ---
 | Feature                        | Description                                                                                                            | Data Type | Notes |
@@ -49,11 +87,12 @@
 ---
 | Target | Definition | Data Type | Notes |
 | ----- | ----- | ----- | ----- |
-| `taxvaluedollarcnt` | The total tax assessed value of the parcel| float | Value being predicted |
+| `log_error` | Error in current Zestimate model | float | Value being predicted |
+
+<hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
 
 #### Initial, Informal Hypotheses
-> - Number of bathrooms, location (county), and total square footage will be most related to appraised value
-> - Average assessed value will vary by county
+> - Add the ones that I end up exploring from the long list I have already created
 
 #### Formal Hypotheses
 
@@ -61,71 +100,39 @@
 > - alpha = .05
 
 > Null Hypotheses:
-> 1. H_0: There is no linear relationship between appraised value and bedroom_cnt
-> 2. H_0: There is no linear relationship between appraised value and bathroom_cnt
-> 3. H_0: There is no linear relationship between appraised value and sqft
-> 4. H_0: There is no linear relationship between appraised value and year_built 
+> 1. H_0: 
 
 > Alternative Hypotheses:
-> 1. H_a: There is a linear relationship between appraised value and bedroom_cnt
-> 2. H_a: There is a linear relationship between appraised value and bathroom_cnt
-> 3. H_a: There is a linear relationship between appraised value and sqft
-> 4. H_a: There is a linear relationship between appraised value and year_built 
+> 1. H_a: 
 
 > **Conclusions:**
-> 1. We reject the null hypothesis since there is a evidence of a linear relationship between appraised_value and bedroom_cnt since p < alpha
-> 2. We reject the null hypothesis since there is a evidence of a linear relationship between appraised_value and bathroom_cnt since p < alpha
-> 3. We reject the null hypothesis since there is a evidence of a linear relationship between appraised_value and sqft since p < alpha
-> 4. We reject the null hypothesis since there is a evidence of a linear relationship between appraised_value and year_built since p < alpha
-
+> 1. 
 
 > **Hypotheses (Mann-Whitney Tests):** 
 > - alpha = .05
 
 > Null Hypotheses:
-> 1. H_0: there is no difference in appraised_value for houses in LA County and Orange County
-> 2. H_0: there is no difference in appraised_value for houses in LA County and Ventura County
-> 3. H_0: there is no difference in appraised_value for houses in Orange County and Ventura County 
+> 1. H_0: 
 
 > Alternative Hypotheses:
-> 1. H_a: there is a difference in appraised_value for houses in LA County and Orange County
-> 2. H_a: there is a difference in appraised_value for houses in LA County and Ventura County
-> 3. H_a: there is a difference in appraised_value for houses in Orange County and Ventura County
+> 1. H_a: 
 
 > **Conclusions:**
-> 1. We reject the null, there is evidence of a difference in appraised_value for houses in LA County and Orange County since p < 0.05
-> 1. We reject the null, there is evidence of a difference in appraised_value for houses in LA County and Ventura County since p < 0.05
-> 1. We reject the null, there is evidence of a difference in appraised_value for houses in Orange County and Ventura County since p < 0.05
-
-<hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
-
-### Executive Summary - Conclusions & Next Steps
-
-<hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
-
-> **Conclusions:**
-> - Best predictors discovered were county, number of bedrooms, number of bathrooms, and square footage
-> - Best-peforming model outperformed baseline and increased R^2 value by 20%
-
-> **Next Steps:**
-> - Improve model performance by adding additional, more predictive features to the model
->> - ZIP code
->> - Neighborhood
->> - Garage count
->> - Pool info
->> - Etc.
+> 1. 
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
 
 ### Pipeline Stages Breakdown
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
+[(Back to top)](#table-of-contents)
 
 ##### ***Plan***
 - [x] Create README.md with data dictionary, project and business goals, come up with initial hypotheses.
 - [x] Acquire data from the Codeup Database and create a function to automate this process. Save the function in an acquire.py file to import into the Final Report Notebook.
 - [x] Clean and prepare data for the first iteration through the pipeline, MVP preparation. Create a function to automate the process, store the function in a prepare.py module, and prepare data in Final Report Notebook by importing and using the funtion.
 - [x] Clearly define at least two hypotheses, set an alpha, run the statistical tests needed, reject or fail to reject the Null Hypothesis, and document findings and takeaways.
+- [x] Utilize clustering to explore data.
 - [x] Establish a baseline accuracy and document well.
 - [x] Train various different regression models.
 - [x] Evaluate models on train and validate datasets.
@@ -157,11 +164,12 @@ ___
 > - Answer key questions, my hypotheses, and figure out the features that can be used in a regression model to best predict the target variable. 
 > - Run at least 2 statistical tests in data exploration. Document my hypotheses, set an alpha before running the tests, and document the findings well.
 > - Create visualizations and run statistical tests that work toward discovering variable relationships (independent with independent and independent with dependent). 
+> - Explore the data using at least 1 clustering model
 > - Summarize my conclusions, provide clear answers to my specific questions, and summarize any takeaways/action plan from the work above.
 ___
 
 ##### Plan -> Acquire -> Prepare -> Explore -> ***Model***
-> - Establish a baseline accuracy to determine if having a model is better than no model and train and compare at least 3 different models. Document these steps well.
+> - Establish a baseline accuracy to determine if having a model is better than no model and train and compare at least 4 different models. Document these steps well.
 > - Train (fit, transform, evaluate) multiple models, varying the algorithm and/or hyperparameters you use.
 > - Compare evaluation metrics across all the models you train and select the ones you want to evaluate using your validate dataframe.
 > - Feature Selection (after initial iteration through pipeline): Are there any variables that seem to provide limited to no additional information? If so, remove them.
@@ -181,6 +189,7 @@ ___
 ### Reproduce My Project
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
+[(Back to top)](#table-of-contents)
 
 You will need your own env file with database credentials along with all the necessary files listed below to run my final project notebook. 
 - [x] Read this README.md
