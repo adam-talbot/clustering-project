@@ -30,9 +30,9 @@ def split(df):
     train, validate, test = p.split_80(df)
     return train, validate, test
 
-def encode_scale(df, scaler):
+def encode_scale(df, scaler, target):
     '''
     Takes in df and scaler of your choosing and returns scaled df with unscaled columns dropped
     '''
-    train, validate, test = p.encode_scale(df, scaler)
+    train, validate, test = p.encode_scale(df, scaler, target)
     return train, validate, test

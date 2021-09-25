@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split
 
+import wrangle as w
+
 def plot_distributions(df):
     '''
     This function creates frequency distributions for each numerical column in the df
@@ -193,14 +195,15 @@ def split_80(df):
     train, validate = train_test_split(train_validate, test_size=.11, random_state=527)
     return train, validate, test
 
-def encode_scale(df, scaler):
+def encode_scale(df, scaler, target):
     '''
-    Takes in df and scaler of your choosing and returns scaled df with unscaled columns dropped
+    Takes in df and scaler of your choosing and returns split, encoded, and scaled df with unscaled columns dropped
     '''
     cat_cols = df.select_dtypes('object').columns.tolist()
+    num_cols = df.select_dtypes('number').columns.tolist()
+    num_cols.remove(target)
     df = pd.get_dummies(data=df, columns=cat_cols)
-    train, validate, test = split(df)
-    num_cols = df.select_dtypes('int64').columns.tolist()
+    train, validate, test = w.split(df)
     new_column_names = [c + '_scaled' for c in num_cols]
     
     # Fit the scaler on the train
