@@ -22,7 +22,7 @@
     - [Evaluate](#evaluate)
 - [Conclusion](#conclusion)
 - [Given More Time](#given-more-time)
-- [Recreate This Project](#recreate-this-project)
+- [Reproduce My Project](#recreate-this-project)
 - [Footer](#footer)
 
 ---
@@ -30,7 +30,6 @@
 <img src="https://1000logos.net/wp-content/uploads/2017/12/Zillow_logo_PNG2.png" alt="Zillow" title="Zillow Logo" width="400" height="200" />
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
-[(Back to top)](#table-of-contents)
 
 ### Project Summary
 
