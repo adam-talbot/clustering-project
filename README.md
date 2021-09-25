@@ -1,14 +1,10 @@
 # Zillow Clustering Project
 
-<!-- Add buttons here -->
-
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/badge/release-draft-yellow)
-![GitHub last commit](https://img.shields.io/badge/last%20commit-Sep%202021-green)
-
 ---
 
 # Table of contents
-<!-- Add a table of contents for your project -->
+
+---
 
 - [Project Title](#zillow-clustering-project)
 - [Project Summary](#project-summary)
@@ -23,23 +19,24 @@
     - [Prepare](#prepare)
     - [Explore](#explore)
     - [Model and Evaluate](#model-and-evaluate)
-- [Conclusion](#conclusion)
-- [Given More Time](#given-more-time)
+- [Conclusion and Next Steps](#conclusion-and-next-steps)
 - [Reproduce My Project](#reproduce-my-project)
 
 ---
 
 <img src="https://1000logos.net/wp-content/uploads/2017/12/Zillow_logo_PNG2.png" alt="Zillow" title="Zillow Logo" width="400" height="200" />
 
-<hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
+---
 
 ### Project Summary
 
-<hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
+---
 
 ### Executive Summary
 
-<hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
+[(Back to top)](#table-of-contents)
+
+---
 
 > **Conclusions/Takaways:**
 > - Best predictors discovered were...
@@ -50,6 +47,9 @@
 >> - ...
 
 #### Project Objectives
+
+[(Back to top)](#table-of-contents)
+
 > - Discover drivers of log error of Zestimate to determine how current model could potentially be improved
 > - Document code, process (data acquistion, preparation, exploratory data analysis and statistical testing, modeling, and model evaluation), findings, and key takeaways in a Jupyter Notebook report
 > - Create modules (acquire.py, prepare.py) that make my process repeateable
@@ -88,10 +88,15 @@
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
 
-#### Initial, Informal Hypotheses
+#### Initial Hypotheses
+
+[(Back to top)](#table-of-contents)
+
 > - Add the ones that I end up exploring from the long list I have already created
 
 #### Formal Hypotheses
+
+[(Back to top)](#table-of-contents)
 
 >  **Hypotheses (Correlation Tests):**
 > - alpha = .05
@@ -117,15 +122,18 @@
 > **Conclusions:**
 > 1. 
 
-<hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
+---
 
 ### Pipeline Stages Breakdown
 
-<hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
+---
 
 [(Back to top)](#table-of-contents)
 
 ##### Plan
+
+[(Back to top)](#table-of-contents)
+
 - [x] Create README.md with data dictionary, project and business goals, come up with initial hypotheses.
 - [x] Acquire data from the Codeup Database and create a function to automate this process. Save the function in an acquire.py file to import into the Final Report Notebook.
 - [x] Clean and prepare data for the first iteration through the pipeline, MVP preparation. Create a function to automate the process, store the function in a prepare.py module, and prepare data in Final Report Notebook by importing and using the funtion.
@@ -140,6 +148,9 @@
 ___
 
 ##### Acquire
+
+[(Back to top)](#table-of-contents)
+
 > - Store functions that are needed to acquire data from the database on the Codeup data science database server; make sure the acquire.py module contains the necessary imports to run my code.
 > - The final function will return a pandas DataFrame.
 > - Import the acquire function from the wrangle.py module and use it to acquire the data in the Final Report Notebook.
@@ -147,6 +158,9 @@ ___
 ___
 
 ##### Prepare
+
+[(Back to top)](#table-of-contents)
+
 > - Store functions needed to prepare the data; make sure the module contains the necessary imports to run the code. The final function should do the following:
 >> - Split the data into train/validate/test.
 >> - Handle any missing values.
@@ -159,6 +173,9 @@ ___
 ___
 
 ##### Explore
+
+[(Back to top)](#table-of-contents)
+
 > - Answer key questions, my hypotheses, and figure out the features that can be used in a regression model to best predict the target variable. 
 > - Run at least 2 statistical tests in data exploration. Document my hypotheses, set an alpha before running the tests, and document the findings well.
 > - Create visualizations and run statistical tests that work toward discovering variable relationships (independent with independent and independent with dependent). 
@@ -167,6 +184,9 @@ ___
 ___
 
 ##### Model and Evaluate
+
+[(Back to top)](#table-of-contents)
+
 > - Establish a baseline accuracy to determine if having a model is better than no model and train and compare at least 4 different models. Document these steps well.
 > - Train (fit, transform, evaluate) multiple models, varying the algorithm and/or hyperparameters you use.
 > - Compare evaluation metrics across all the models you train and select the ones you want to evaluate using your validate dataframe.
@@ -174,15 +194,17 @@ ___
 > - Based on the evaluation of the models using the train and validate datasets, choose the best model to try with the test data, once.
 > - Test the final model on the out-of-sample data (the testing dataset), summarize the performance, interpret and document the results.
 
-<hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
+---
+
+### Conclusion and Next Steps
 
 [(Back to Executive Summary)](#executive-summary)
 
-<hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
+---
 
 ### Reproduce My Project
 
-<hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
+---
 
 [(Back to top)](#table-of-contents)
 
