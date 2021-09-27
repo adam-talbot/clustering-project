@@ -79,6 +79,8 @@ def clean_zillow(df):
     df['county'] = df['fips'].apply(lambda x: 'Los Angeles' if x == 6037 else 'Orange' if x == 6059 else 'Ventura') # convert to county names
     df.censustractandblock = '0' + df.censustractandblock.astype('int').astype('string').astype('object') # format back to object and recover leading 0
     df['zip'] = df.regionidzip.astype(int).astype('object') # convert to object regionidzip
+    df.latitude = df.latitude / 1_000_000
+    df.longitude = df.longitude / 1_000_000
     df = df.drop(columns=['calculatedbathnbr', # all present values are same as beds + baths, redundant
                           'finishedsquarefeet12', # all present values are same as other sf column, redundant
                           'fullbathcnt', # redundant info, all necessary info is contained in bathroomcnt
@@ -98,8 +100,6 @@ def clean_zillow(df):
     unit_type_dict = { # created dictionary for all unit type conversions
     'bedroomcnt' : 'int',
     'calculatedfinishedsquarefeet' : 'int',
-    'latitude' : 'int',
-    'longitude' : 'int',
     'lotsizesquarefeet' : 'int',
     'roomcnt' : 'int',
     'yearbuilt' : 'int',
@@ -202,6 +202,45 @@ def encode_scale(df, scaler, target):
     cat_cols = df.select_dtypes('object').columns.tolist()
     num_cols = df.select_dtypes('number').columns.tolist()
     num_cols.remove(target)
+    df = pd.get_dummies(data=df, columns=cat_cols)
+    train, validate, test = w.split(df)
+    new_column_names = [c + '_scaled' for c in num_cols]
+    
+    # Fit the scaler on the train
+    scaler.fit(train[num_cols])
+    
+    # transform train validate and test
+    train = pd.concat([
+        train,
+        pd.DataFrame(scaler.transform(train[num_cols]), columns=new_column_names, index=train.index),
+    ], axis=1)
+    
+    validate = pd.concat([
+        validate,
+        pd.DataFrame(scaler.transform(validate[num_cols]), columns=new_column_names, index=validate.index),
+    ], axis=1)
+    
+    
+    test = pd.concat([
+        test,
+        pd.DataFrame(scaler.transform(test[num_cols]), columns=new_column_names, index=test.index),
+    ], axis=1)
+    
+    # drop scaled columns
+    train = train.drop(columns=num_cols)
+    validate = validate.drop(columns=num_cols)
+    test = test.drop(columns=num_cols)
+    
+    return train, validate, test
+
+def encode_scale_final(df, scaler, target, cols_not_scale):
+    '''
+    Takes in df and scaler of your choosing and returns split, encoded, and scaled df with unscaled columns dropped
+    '''
+    cat_cols = df.select_dtypes('object').columns.tolist()
+    num_cols = df.select_dtypes('number').columns.tolist()
+    num_cols.remove(target)
+    num_cols = [col for col in num_cols if col not in cols_not_scale]
     df = pd.get_dummies(data=df, columns=cat_cols)
     train, validate, test = w.split(df)
     new_column_names = [c + '_scaled' for c in num_cols]

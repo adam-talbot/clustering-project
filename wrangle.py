@@ -32,7 +32,14 @@ def split(df):
 
 def encode_scale(df, scaler, target):
     '''
-    Takes in df and scaler of your choosing and returns scaled df with unscaled columns dropped
+    Takes in df and scaler of your choosing and returns scaled df with unscaled columns dropped without scaling target
     '''
     train, validate, test = p.encode_scale(df, scaler, target)
+    return train, validate, test
+
+def encode_scale_final(df, scaler, target, cols_not_scale):
+    '''
+    Takes in df and scaler of your choosing and returns scaled df with unscaled columns dropped without scaling target and other columns designated
+    '''
+    train, validate, test = p.encode_scale_final(df, scaler, target, cols_not_scale)
     return train, validate, test
