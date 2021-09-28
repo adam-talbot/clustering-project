@@ -9,10 +9,10 @@
 - [Project Title](#zillow-clustering-project)
 - [Executive Summary](#executive-summary)
     - [Project Objectives](#project-objectives)
-    - [Conclusions/Takeaways](#conclusions/takeaways)
-    - [Next Steps/Recommendations](#next-steps/recommendations)    
+    - [Conclusions and Takeaways](#conclusions-and-takeaways)
+    - [Next Steps and Recommendations](#next-steps-and-recommendations)    
 - [Data Dictionary](#data-dictionary)
-- [Initial Hypotheses](#initial-hypotheses)
+- [Initial Questions](#initial-hypotheses)
 - [Formal Hypotheses](#formal-hypotheses)
 - [Pipeline Stages Breakdown](#pipeline-stages-breakdown)
     - [Plan](#plan)
@@ -82,7 +82,7 @@
 
 ---
 | Feature                        | Description                                                                                                            | Data Type | Notes |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | --------- | ----- |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | --------- | ------------- |
 | `bath_cnt`                  |  Number of bathrooms in home including fractional bathrooms                                                          |   float     |   Used in model    |
 | `bed_cnt`                   |  Number of bedrooms in home                                                                                          |   int     |   Used in model    |
 | `sqft`                      |  Calculated total finished living area of the home                                                                   |   int      |   Used in model    |
@@ -99,7 +99,6 @@
 | `_more_than_2500_sf`           | Whether or not property is bigger than 2500 sqft                                                                  |   int     | Used in model   |
 | `_less_than_250k`              | Whether or not assessed value is less than 250k dollars                                                           |   int     | Used in model   |
 | `_7_to_12_total_rooms`           | Whether or not property has 7-12 total rooms                                                                    |   int     | Used in model   |
-| `_7_to_12_total_rooms`           | Whether or not property has 7-12 total rooms                                                                    |   int     | Used in model   |
 
 ---
 | Target | Definition | Data Type | Notes |
@@ -108,7 +107,7 @@
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
 
-#### Initial Hypotheses/Questions
+#### Initial Questions
 
 [(Back to top)](#table-of-contents)
 
@@ -129,8 +128,6 @@
 ### Pipeline Stages Breakdown
 
 ---
-
-[(Back to top)](#table-of-contents)
 
 ##### Plan
 
@@ -212,6 +209,6 @@ ___
 
 You will need your own env file with database credentials along with all the necessary files listed below to run my final project notebook. 
 - [x] Read this README.md
-- [ ] Download the wrangle.py, evaluate.py, explore.py, and final_report.ipynb files into your working directory
+- [ ] Download the modules (.py files), and final_report.ipynb files into your working directory
 - [ ] Add your own env file to your directory. (user, password, host)
 - [ ] Run the final_report.ipynb notebook
