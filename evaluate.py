@@ -17,11 +17,11 @@ def make_metric_df(y_train_actual, y_train_pred, y_validate_actual, y_validate_p
                 'RMSE_train': round(mean_squared_error(
                     y_train_actual,
                     y_train_pred,
-                    squared=False),2),
+                    squared=False),3),
                 'RMSE_validate': round(mean_squared_error(
                     y_validate_actual,
                     y_validate_pred,
-                    squared=False),2),
+                    squared=False),3),
                 'RMSE_diff' : round((mean_squared_error(
                     y_train_actual,
                     y_train_pred,
@@ -30,20 +30,20 @@ def make_metric_df(y_train_actual, y_train_pred, y_validate_actual, y_validate_p
                     (mean_squared_error(
                     y_validate_actual,
                     y_validate_pred,
-                    squared=False)),2),
+                    squared=False)),3),
                 'R2_train': round(explained_variance_score(
                     y_train_actual,
-                    y_train_pred),2),
+                    y_train_pred),3),
                 'R2_validate': round(explained_variance_score(
                     y_validate_actual,
-                    y_validate_pred),2),
+                    y_validate_pred),3),
                 "R2_diff" : round((explained_variance_score(
                     y_train_actual,
                     y_train_pred))
                     -
                     (explained_variance_score(
                     y_validate_actual,
-                    y_validate_pred)),2)
+                    y_validate_pred)),3)
             }])
         return metric_df
     else:
@@ -53,11 +53,11 @@ def make_metric_df(y_train_actual, y_train_pred, y_validate_actual, y_validate_p
                 'RMSE_train': round(mean_squared_error(
                     y_train_actual,
                     y_train_pred,
-                    squared=False),2),
+                    squared=False),3),
                 'RMSE_validate': round(mean_squared_error(
                     y_validate_actual,
                     y_validate_pred,
-                    squared=False),2),
+                    squared=False),3),
                 'RMSE_diff' : round((mean_squared_error(
                     y_train_actual,
                     y_train_pred,
@@ -66,18 +66,18 @@ def make_metric_df(y_train_actual, y_train_pred, y_validate_actual, y_validate_p
                     (mean_squared_error(
                     y_validate_actual,
                     y_validate_pred,
-                    squared=False)),2),
+                    squared=False)),3),
                 'R2_train': round(explained_variance_score(
                     y_train_actual,
-                    y_train_pred),2),
+                    y_train_pred),3),
                 'R2_validate': round(explained_variance_score(
                     y_validate_actual,
-                    y_validate_pred),2),
+                    y_validate_pred),3),
                 "R2_diff" : round((explained_variance_score(
                     y_train_actual,
                     y_train_pred))
                     -
                     (explained_variance_score(
                     y_validate_actual,
-                    y_validate_pred)),2)
+                    y_validate_pred)),3)
             }, ignore_index=True)
