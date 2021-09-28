@@ -6,7 +6,6 @@
 
 ---
 
-- [Project Title](#zillow-clustering-project)
 - [Executive Summary](#executive-summary)
     - [Project Objectives](#project-objectives)
     - [Conclusions and Takeaways](#conclusions-and-takeaways)
