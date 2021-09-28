@@ -36,6 +36,8 @@
 
 #### Project Objectives
 
+[(Back to top)](#table-of-contents)
+
 > - Discover drivers of log error of Zestimate to determine how current model could potentially be improved
 > - Document code, process (data acquistion, preparation, exploratory data analysis and statistical testing, modeling, and model evaluation), findings, and key takeaways in a Jupyter Notebook report
 > - Create modules as necessary that make my process repeateable
@@ -46,6 +48,9 @@
 > - Answer panel questions about your code, process, findings and key takeaways, and model
 
 #### Conclusions and Takeaways 
+
+[(Back to top)](#table-of-contents)
+
 > - The following subgroups had higher than average log error: 
 >> - Orange County
 >> - above 2,500 square feet
@@ -63,6 +68,9 @@
 > - Best-peforming model only slightly outperformed baseline
 
 #### Next Steps and Recommendations
+
+[(Back to top)](#table-of-contents)
+
 > - Manually look into more subgroups to see if model is performing poorly on specific portions of the population
 > - Try more combinations of features in model to see if model performance can be improved/more drivers can be indentified
 > - Leverage clustering to create subgroups for other single continuous variables
