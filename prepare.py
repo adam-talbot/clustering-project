@@ -9,57 +9,6 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
 import wrangle as w
-
-def plot_distributions(df):
-    '''
-    This function creates frequency distributions for each numerical column in the df
-    '''
-    plt.figure(figsize=(15, 3))
-    
-    # List of columns
-    cols = df.select_dtypes('number').columns.tolist()
-    
-    for i, col in enumerate(cols):
-        
-        # i starts at 0, but plot nos should start at 1
-        plot_number = i + 1 
-        
-        # Create subplot.
-        plt.subplot(1,len(cols), plot_number)
-        
-        # Axis labels
-        plt.xlabel(col)
-        plt.ylabel('count')
-        
-        # Display histogram for column.
-        df[col].hist(edgecolor='black', color='green')
-        
-        # Hide gridlines.
-        plt.grid(False)
-        
-def plot_boxplots(df):
-    '''
-    This function creates boxplots for each numerical column in the df
-    '''
-    plt.figure(figsize=(12, 4))
-
-    # List of columns
-    cols = df.select_dtypes('number').columns.tolist()
-    
-    for i, col in enumerate(cols):
-        
-        # i starts at 0, but plot nos should start at 1
-        plot_number = i + 1 
-        
-        # Create subplot.
-        plt.subplot(1,len(cols), plot_number)
-        
-        # Title with column name.
-        #plt.title(col)
-        
-        # Display boxplot for column.
-        sns.boxplot(y=col, data=df, color='green')
-        plt.tight_layout()
         
 def clean_zillow(df):
     '''
