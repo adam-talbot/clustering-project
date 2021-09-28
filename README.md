@@ -11,7 +11,7 @@
     - [Conclusions and Takeaways](#conclusions-and-takeaways)
     - [Next Steps and Recommendations](#next-steps-and-recommendations)    
 - [Data Dictionary](#data-dictionary)
-- [Initial Questions](#initial-hypotheses)
+- [Initial Questions](#initial-questions)
 - [Formal Hypotheses](#formal-hypotheses)
 - [Pipeline Stages Breakdown](#pipeline-stages-breakdown)
     - [Plan](#plan)
@@ -45,7 +45,7 @@
 > - Deliver a 4-minute, audience-appropriate presentation consisting of a high-level walkthrough of my notebook
 > - Answer panel questions about your code, process, findings and key takeaways, and model
 
-#### Conclusions/Takeaways 
+#### Conclusions and Takeaways 
 > - The following subgroups had higher than average log error: 
 >> - Orange County
 >> - above 2,500 square feet
@@ -62,7 +62,7 @@
 >> - livable square footage
 > - Best-peforming model only slightly outperformed baseline
 
-#### Next Steps/Recommendations
+#### Next Steps and Recommendations
 > - Manually look into more subgroups to see if model is performing poorly on specific portions of the population
 > - Try more combinations of features in model to see if model performance can be improved/more drivers can be indentified
 > - Leverage clustering to create subgroups for other single continuous variables
