@@ -7,9 +7,10 @@
 ---
 
 - [Project Title](#zillow-clustering-project)
-- [Project Summary](#project-summary)
-    - [Executive Summary](#executive-summary)
+- [Executive Summary](#executive-summary)
     - [Project Objectives](#project-objectives)
+    - [Conclusions/Takeaways](#conclusions/takeaways)
+    - [Next Steps/Recommendations](#next-steps/recommendations)    
 - [Data Dictionary](#data-dictionary)
 - [Initial Hypotheses](#initial-hypotheses)
 - [Formal Hypotheses](#formal-hypotheses)
@@ -28,43 +29,52 @@
 
 ---
 
-### Project Summary
-
----
-
 ### Executive Summary
 
 [(Back to top)](#table-of-contents)
 
 ---
 
-> **Conclusions/Takaways:**
-> - Best predictors discovered were...
-> - Best-peforming model outperformed baseline and increased R^2 value by...
-
-> **Next Steps:**
-> - Improve model performance by...
->> - ...
-
 #### Project Objectives
-
-[(Back to top)](#table-of-contents)
 
 > - Discover drivers of log error of Zestimate to determine how current model could potentially be improved
 > - Document code, process (data acquistion, preparation, exploratory data analysis and statistical testing, modeling, and model evaluation), findings, and key takeaways in a Jupyter Notebook report
-> - Create modules (acquire.py, prepare.py) that make my process repeateable
+> - Create modules as necessary that make my process repeateable
 > - Include all work in github repo with README to provide high level overview and instructions for replication
 > - Use clustering techniques as part of exploration process
 > - Construct a model to predict Zestimate log error using regression techniques
 > - Deliver a 4-minute, audience-appropriate presentation consisting of a high-level walkthrough of my notebook
 > - Answer panel questions about your code, process, findings and key takeaways, and model
 
+#### Conclusions/Takeaways 
+> - The following subgroups had higher than average log error: 
+>> - Orange County
+>> - above 2,500 square feet
+>> - below 250k dollars assessed value
+>> - 7 - 12 total rooms
+>> - cluster 4 from Cluster Model 1 (total rooms, sqft, assessed_value)
+> - Best predictors identified via modeling were:
+>> - assessed value
+>> - latitude
+>> - bedroom count
+>> - above 2,500 square feet
+>> - total rooms
+>> - lot size
+>> - livable square footage
+> - Best-peforming model only slightly outperformed baseline
+
+#### Next Steps/Recommendations
+> - Manually look into more subgroups to see if model is performing poorly on specific portions of the population
+> - Try more combinations of features in model to see if model performance can be improved/more drivers can be indentified
+> - Leverage clustering to create subgroups for other single continuous variables
+> - Try clustering on more combinations of features to see if more subgroups could be identified using algorithm
+> - Look into creating individual models for subgroups with higher error mentioned above
+
 #### Audience
 > - The Zillow Data Science team
 
 #### Project Context
 > - The Zillow dataset I'm using came from the Codeup database
-
 
 #### Data Dictionary
 
@@ -73,13 +83,23 @@
 ---
 | Feature                        | Description                                                                                                            | Data Type | Notes |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | --------- | ----- |
-| `bathroomcnt`                  |  Number of bathrooms in home including fractional bathrooms                                                            |   float     |   Used in model    |
-| `bedroomcnt`                   |  Number of bedrooms in home                                                                                            |   int     |   Used in model    |
-| `calculatedfinishedsquarefeet` |  Calculated total finished living area of the home                                                                     |     int      |   Used in model    |
-| `fips`                         |  Federal Information Processing Standard code -  see https://en.wikipedia.org/wiki/FIPS\_county\_code for more details |     string      |   Used in model    |
-| `propertylandusetypeid`        |  Type of land use the property is zoned for                                                                            |      int     |    Used to filter properties from database   |
-| `yearbuilt`                    |  The Year the principal residence was built                                                                            |       int    |    Used in model   |
-| `taxamount`                    | The total property tax assessed for that assessment year                                                               |      float     |    Used to calculate tax rates by county   |
+| `bath_cnt`                  |  Number of bathrooms in home including fractional bathrooms                                                          |   float     |   Used in model    |
+| `bed_cnt`                   |  Number of bedrooms in home                                                                                          |   int     |   Used in model    |
+| `sqft`                      |  Calculated total finished living area of the home                                                                   |   int      |   Used in model    |
+| `county`                         |  County where propety is located                                                                                |   string      |   Used in model    |
+| `latitude`                  |  Latitude of property                                                                                                |   float     |   Used in model    |
+| `longitude`                  |  Longitude of property                                                                                              |   float     |   Used in model    |
+| `lot_sqft`                   |  Total square footage of lot                                                                                        |   int     |    Used in model  |
+| `total_rooms`                    |  Total rooms in house                                                                                           |   int    |    Used in model   |
+| `year_built`                    |  The year the principal residence was built                                                                      |   int    |    Used in model   |
+| `assessed_value`                    |  Assessed value of property                                                                                  |   float    |    Used in model   |
+| `sale_month`                    |  Month the property was sold                                                                                     |   int    |    Used in model   |
+| `sale_week`                    |  Week the property was sold                                                                                       |   int    |    Used in model   |
+| `_4_cluster_1`                    |  cluster 4 from Cluster Model 1 (total rooms, sqft, assessed_value)                                            |   int    |    Used in model   |
+| `_more_than_2500_sf`           | Whether or not property is bigger than 2500 sqft                                                                  |   int     | Used in model   |
+| `_less_than_250k`              | Whether or not assessed value is less than 250k dollars                                                           |   int     | Used in model   |
+| `_7_to_12_total_rooms`           | Whether or not property has 7-12 total rooms                                                                    |   int     | Used in model   |
+| `_7_to_12_total_rooms`           | Whether or not property has 7-12 total rooms                                                                    |   int     | Used in model   |
 
 ---
 | Target | Definition | Data Type | Notes |
@@ -88,39 +108,21 @@
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
 
-#### Initial Hypotheses
+#### Initial Hypotheses/Questions
 
 [(Back to top)](#table-of-contents)
 
-> - Add the ones that I end up exploring from the long list I have already created
+> - Is logerror significantly different for properties in LA County vs Orange County vs Ventura County?
+> - Is sqft related to log error?
+> - Is assessed value related to log error?
+> - Is year built related to log error?
+> - Is total rooms related to log error?
 
 #### Formal Hypotheses
 
 [(Back to top)](#table-of-contents)
 
->  **Hypotheses (Correlation Tests):**
-> - alpha = .05
-
-> Null Hypotheses:
-> 1. H_0: 
-
-> Alternative Hypotheses:
-> 1. H_a: 
-
-> **Conclusions:**
-> 1. 
-
-> **Hypotheses (Mann-Whitney Tests):** 
-> - alpha = .05
-
-> Null Hypotheses:
-> 1. H_0: 
-
-> Alternative Hypotheses:
-> 1. H_a: 
-
-> **Conclusions:**
-> 1. 
+> - See notebook for formal hypotheses and statistical testing
 
 ---
 
